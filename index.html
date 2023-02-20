@@ -10,15 +10,28 @@
     <script src="js/main.js"></script>
 </head>
 <body>
-    <div class="box">
+<!--     <div class="box">
         <h1>欢迎访问大虹子的网站</h1>
         <span>呀咔咔</span>
         <div class="img-main" onclick=changeImg()>
             <img src="images/bgc1.jpg">
         </div>
-    </div>
+    </div> -->
+    <div id="content">a test</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script>
-        window.location.herf = "./tem.md"
+        $(function(){
+            $.ajax({
+                type:"get",
+                url:"./tem.md",
+                dataType:"html",
+                success:function(res){
+                    document.getElementById('content').innerHTML = marked.parse(res);
+                }
+            })
+        })
     </script>
 </body>
 </html>
